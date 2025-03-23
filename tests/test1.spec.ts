@@ -25,7 +25,7 @@ test.describe('Navigation to page', () => {
       await page.locator('id=password').fill("Test1234!")
       await page.locator('id=submitButton').click()
       await page.locator('//span[contains(.,("My account"))]').click()
-      expect(await page.title()).toBe("My account - GNews API")
+      expect(await page.title()).toBe("My Account - GNews API")
       await expect(page.locator('//input[@id="email"]')).toHaveAttribute("value","mike9890@mailinator.com")
   });
 });
