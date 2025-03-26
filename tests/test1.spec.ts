@@ -6,11 +6,11 @@ test.beforeEach(async ({ page }) => {
 
 
 test.describe('Navigation to page', () => {
-     test.skip('user should navigate to homepage', async ({ page }) => {
+     test('user should navigate to homepage', async ({ page }) => {
       expect(await page.title()).toBe("GNews: News API to Search for the Latest & Historical News")
     });
 
-    test.skip('user should able to login in app', async ({ page }) => {
+    test('user should able to login in app', async ({ page }) => {
       await page.locator('//div[@class="ml-auto"]//a[@href="/login"]').click()
       //expect(await page.title()).toBe("Sign in - GNews API")
       await page.locator('id=email').fill("mike9890@mailinator.com")
