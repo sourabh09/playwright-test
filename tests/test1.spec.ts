@@ -6,7 +6,7 @@ test.describe('Regression Tests', () => {
 
   test.beforeEach(async ({ page }: { page: Page }) => {
     loginPage = new LoginPage(page);
-    await page.goto('https://gnews.io/');
+    await page.goto('https://shop.amul.com/en/product/amul-chocolate-whey-protein-34-g-or-pack-of-30-sachets');
   });
 
   test('user should navigate to homepage', async ({ page }) => {
@@ -23,5 +23,10 @@ test.describe('Regression Tests', () => {
     await page.locator('//span[contains(.,("My account"))]').click()
     expect(await page.title()).toBe("My Account - GNews API")
     await expect(page.locator('//input[@id="email"]')).toHaveAttribute("value", "mike9890@mailinator.com")
+  });
+
+  test.only('Checking product availability', async ({ page }) => {
+    await loginPage.submitPinCode("380058")
+    await expect(page.locator('//div[text()[contains(.,"Sold")]]')).toBeVisible()
   });
 });
