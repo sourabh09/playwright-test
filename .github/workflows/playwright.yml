@@ -5,7 +5,9 @@ on:
   pull_request:
     branches: [ main, master ]
   schedule:
-    - cron: '0 0 * * *'  # Run tests every day at midnight UTC
+    # - cron: '0 0 * * *'  # Run tests every day at midnight UTC
+    - cron: '30 4 * * *'  # 10:00 AM IST
+    - cron: '30 15 * * *' # 9:00 PM IST
 jobs:
   test:
     timeout-minutes: 60
